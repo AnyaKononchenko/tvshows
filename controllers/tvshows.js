@@ -1,5 +1,6 @@
 let tvshows = require("../models/tvshows");
 
+
 const getAllTvshows = (req, res) => {
   try {
     const { genre } = req.query;
@@ -81,6 +82,7 @@ const updateTvshow = (req, res) => {
   }
 };
 
+
 const createTvshow = (req, res) => {
   try {
     const found = tvshows.find((tvshow) => tvshow.id === Number(req.body.id));
@@ -98,10 +100,21 @@ const createTvshow = (req, res) => {
   }
 };
 
+const addPicture_test = (req, res) => {
+  try {
+    res.json({
+      message: `you have added a picture`,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getAllTvshows,
   getTvshow,
   deleteTvshow,
   updateTvshow,
   createTvshow,
+  addPicture_test,
 };
