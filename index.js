@@ -1,4 +1,4 @@
-require("dotenv").config();
+const dev = require('./config');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 const app = express();
-const port = process.env.SERVER_PORT || 3002;
+const port = dev.env.port;
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
